@@ -640,6 +640,10 @@ pub const WindowDelegate = opaque {
     pub fn windowWillResize_toSize(self_: *@This(), sender_: *Window, frameSize_: Size) Size {
         return objc.msgSend(self_, "windowWillResize:toSize:", Size, .{ sender_, frameSize_ });
     }
+
+    pub fn windowShouldClose(self_: *@This(), sender_: *Window) bool {
+        return objc.msgSend(self_, "windowShouldClose:", bool, .{ sender_ });
+    }
 };
 
 pub const ObjectProtocol = opaque {
